@@ -16,8 +16,10 @@ const app = express();
 const allowedOrigins = [
   'http://127.0.0.1:5501',
   'http://localhost:5501',
-  'https://stockfreeimage.onrender.com'
+  'https://stockfreeimage.onrender.com',
+  'https://stockfreeimage-frontend.vercel.app'
 ];
+
 
 app.use(
   cors({

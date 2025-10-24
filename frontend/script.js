@@ -1,12 +1,11 @@
-const API_BASE = 'http://localhost:4000/api';
-// const API_BASE =
-//   window.location.hostname === 'localhost'
-//     ? 'http://localhost:4000/api'
-//     : 'https://your-backend-name.onrender.com/api';
+const API_BASE =
+  window.location.hostname === 'localhost'
+    ? 'http://localhost:4000/api'
+    : 'https://stockfreeimage.onrender.com/api';
 
 
-    let currentUser = null;
-    let token = localStorage.getItem('token');
+let currentUser = null;
+let token = localStorage.getItem('token');
     let currentPage = 1;
     let currentQuery = '';
     let selectedImage = null;
