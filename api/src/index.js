@@ -12,45 +12,41 @@ connectDB();
 
 const app = express();
 
-//  Allowed origins (add your Vercel frontend + local)
+//  Allowed origins
 const allowedOrigins = [
   'http://127.0.0.1:5501',
   'http://localhost:5501',
-  'https://stock-free-image-otmggxrsa-jephewoh-gmailcoms-projects.vercel.app', // your frontend
-  'https://stockfreeimage.onrender.com' // backend itself
+  'https://stockfreeimage.onrender.com',
+  'https://stock-free-image-otmggxrsa-jephewoh-gmailcoms-projects.vercel.app'
 ];
 
-//  CORS setup
+//  CORS config
 app.use(
   cors({
-    origin: function (origin, callback) {
+    origin: (origin, callback) => {
       if (!origin || allowedOrigins.includes(origin)) {
         callback(null, true);
       } else {
         callback(new Error('Not allowed by CORS'));
       }
     },
+    methods: ['GET', 'POST', 'PUT', 'DELETE'],
     credentials: true,
   })
 );
 
-//  Handle preflight (OPTIONS) requests globally
-app.options('*', cors());
-
-//  Parse JSON
 app.use(express.json());
 
-//  Routes
+//  API routes
 app.use('/api/auth', authRoutes);
 app.use('/api/images', imageRoutes);
 app.use('/api/favorites', favoriteRoutes);
 app.use('/api/playlists', playlistRoutes);
 
-//  Default route
-app.get('/', (req, res) => {
-  res.send('StockFreeImage API is running...');
+/
+app.use((req, res) => {
+  res.status(404).json({ message: 'Route not found' });
 });
 
-//  Start server
 const PORT = process.env.PORT || 4000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
