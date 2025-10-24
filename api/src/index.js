@@ -17,7 +17,8 @@ const allowedOrigins = [
   'http://127.0.0.1:5501',
   'http://localhost:5501',
   'https://stockfreeimage.onrender.com',
-  'https://stock-free-image-otmggxrsa-jephewoh-gmailcoms-projects.vercel.app'
+  'https://stock-free-image-otmggxrsa-jephewoh-gmailcoms-projects.vercel.app',
+  'https://stock-free-image-2p58vl52n-jephewoh-gmailcoms-projects.vercel.app'
 ];
 
 //  CORS config
