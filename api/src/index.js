@@ -1,10 +1,10 @@
 import express from 'express';
 import dotenv from 'dotenv';
-import connectDB from './src/config/db.js';
-import authRoutes from './src/routes/authRoutes.js';
-import imageRoutes from './src/routes/imageRoutes.js';
-import favoriteRoutes from './src/routes/favoritesRoutes.js';
-import playlistRoutes from './src/routes/playlistsRoutes.js';
+import connectDB from './config/db.js';
+import authRoutes from './routes/authRoutes.js';
+import imageRoutes from './routes/imageRoutes.js';
+import favoriteRoutes from './routes/favoritesRoutes.js';
+import playlistRoutes from './routes/playlistsRoutes.js';
 import cors from 'cors';
 
 dotenv.config();
@@ -14,9 +14,9 @@ const app = express();
 
 // Enable CORS for both local and deployed frontend
 const allowedOrigins = [
-  'http://127.0.0.1:5501',           // local Live Server
-  'http://localhost:5501',           // just in case
-  'https://your-frontend.vercel.app' // ← replace with your Vercel frontend URL
+  'http://127.0.0.1:5501',
+  'http://localhost:5501',
+  'https://stockfreeimage.onrender.com'
 ];
 
 app.use(
