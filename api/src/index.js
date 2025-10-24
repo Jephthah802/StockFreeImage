@@ -43,7 +43,7 @@ app.use('/api/images', imageRoutes);
 app.use('/api/favorites', favoriteRoutes);
 app.use('/api/playlists', playlistRoutes);
 
-/
+
 app.use((req, res) => {
   res.status(404).json({ message: 'Route not found' });
 });
